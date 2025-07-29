@@ -2,6 +2,7 @@ package com.spring.jwt;
 
 
 import com.spring.jwt.JwtUtil;
+import com.spring.service.UserService;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.UnsupportedJwtException;
@@ -24,14 +25,16 @@ import java.io.IOException;
 @Component
 public class JwtFilter extends OncePerRequestFilter {
 
+
     private final JwtUtil jwtUtil;
-    @Autowired
     private final UserDetailsService userDetailsService;
 
+    @Autowired
     public JwtFilter(JwtUtil jwtUtil, UserDetailsService userDetailsService) {
         this.jwtUtil = jwtUtil;
         this.userDetailsService = userDetailsService;
     }
+
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)

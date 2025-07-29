@@ -11,11 +11,12 @@ import lombok.Data;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String userId;
-    private String UserName;
-    private String Password;
+    private int userId;
+    private String userName;
+    private String password;
     private String email;
     private String PhoneNumber;
     private String Profile_image;
     private String About;
+    private String dob;
 }

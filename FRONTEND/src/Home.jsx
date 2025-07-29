@@ -1,5 +1,6 @@
 import React,{useEffect} from "react";
 import { useNavigate } from "react-router-dom";
+import { Routes, Route } from 'react-router-dom';
 
 function Home() {
     const navigate = useNavigate();

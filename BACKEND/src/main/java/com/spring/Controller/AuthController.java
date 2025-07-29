@@ -4,6 +4,7 @@ import com.spring.jwt.JwtUtil;
 import com.spring.model.LoginRequest;
 import com.spring.model.User;
 import com.spring.repo.UserRepository;
+import com.spring.service.UserService;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureException;
@@ -25,6 +26,8 @@ import java.util.Map;
 public class AuthController {
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private UserService userService;
 //    @Autowired
 //    private BCryptPasswordEncoder bCryptPasswordEncoder;
 //    @Autowired
@@ -54,7 +57,7 @@ public class AuthController {
 //---- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-    @GetMapping("/validate")
+    @PostMapping("/validate")
     public ResponseEntity<?> validateToken(@CookieValue(name = "authToken", required = false) String authHeader) {
 
 

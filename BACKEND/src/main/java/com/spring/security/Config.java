@@ -42,7 +42,7 @@ public class Config {
                 .cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth-> auth
-                        .requestMatchers("/auth/login","/auth/validate").permitAll()
+                        .requestMatchers("/auth/login","/auth/validate","/SaveNewUser").permitAll()
 
                         .anyRequest().authenticated()
                 )
